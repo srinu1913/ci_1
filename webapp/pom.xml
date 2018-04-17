@@ -42,7 +42,12 @@
     <url>http://ec2-54-183-189-156.us-west-1.compute.amazonaws.com:8080/nexus/content/repositories/snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
-
+ <repositories>
+	<repository>
+	<id>releases</id>
+	<url>http://ec2-54-183-189-156.us-west-1.compute.amazonaws.com:8080/nexus/content/repositories/releases/</url>
+  </repository>
+   </repositories> 
   <build>
     <finalName>webapp</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
@@ -51,6 +56,12 @@
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+		<plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.5.3</version>
+      </plugin>
+		
         <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
